@@ -36,3 +36,35 @@ int fibo(int n)
 }
 
 Console.WriteLine(fibo(45));
+
+Console.WriteLine();
+
+Console.Write("Kérem a jelszót: ");
+
+string jelszo = Console.ReadLine();
+
+List<char> specialis = new() {'_', '-', '.' };
+
+int jelszoerosseg(string jelszo)
+{
+    int ero = 1;
+
+    if (jelszo.Length >= 5)
+    {
+        ero++;
+    }
+    
+    if (jelszo.Length >= 8)
+    {
+        ero += 2;
+    }
+
+    foreach (char c in jelszo)
+    {
+        if (specialis.Contains(c))
+        {
+            ero += 2;
+        }
+    }
+    return ero;
+}
